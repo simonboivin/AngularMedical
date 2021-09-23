@@ -1,0 +1,27 @@
+<header id="header">
+    <div class="header_logo ">
+        <i class="fas fa-shield-virus h1 my-0 me-2"></i>
+        <H1 class="my-0">Arkham Santé</H1>
+    </div>
+
+    <div class="bulle_utilisateur">
+
+        <div>Bonjour</div>
+
+
+        <div class="dropdown">
+            <a class="btn btn-outline-light bg-transparent dropdown-toggle ms-3 border-0" href="#" role="button"
+                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> <img class="image_profils"
+                    src="/profils/user.png" alt="photo_profil"></a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal"
+                        th:href="@{'/user/profile/edit/' + ${#authentication.getPrincipal().getUser().getId()}}">Gérer
+                        mon profil</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</header>
