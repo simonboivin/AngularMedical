@@ -7,13 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './footer/footer.component';
 import { PatientsComponent } from './patients/patients.component';
+import { VillesComponent } from './villes/villes.component';
+import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PatientsComponent
+    PatientsComponent,
+    VillesComponent,
+    UtilisateursComponent
   ],
   imports: [
     BrowserModule,
