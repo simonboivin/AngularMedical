@@ -3,5 +3,5 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "previous_style.css";
 body {
-    background: radial-gradient(#fff, #f8fcfd);
+    background-image: url('src/assets/img/back.png');
 }
