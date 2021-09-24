@@ -1,1 +1,26 @@
 <p>villes works!</p>
+
+<div class="container">
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ville</th>
+                <th>CP</th>
+                <th style="width:100px"><i class="fas fa-cogs"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ville of villes">
+                <td>{{ ville.id }}</td>
+                <td>{{ ville.nom }}</td>
+                <td>{{ ville.codePostal }}</td>
+                <td>
+                    <!--<a th:href="@{'/ville/edit/' + ${v.id}}"><i class="fas fa-edit"></i></a>
+            <a th:href="@{'/ville/delete/' + ${v.id}}"><i class="fas fa-trash"></i></a>-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
