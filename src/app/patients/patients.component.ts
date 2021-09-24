@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
+import { urlApi } from "src/app/variables";
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -29,7 +30,7 @@ export class PatientsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Patients[]>("http://localhost:8080/api/patients", httpOptions).subscribe(
+    this.http.get<Patients[]>(urlApi + "patients", httpOptions).subscribe(
       data => {
         this.patientsList = data;
         console.log(data);

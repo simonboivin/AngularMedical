@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { Villes } from "../classes/villes";
+import { urlApi } from "src/app/variables";
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -24,7 +25,7 @@ export class VillesComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Villes[]>("http://localhost:8080/api/villes", httpOptions).subscribe(
+    this.http.get<Villes[]>(urlApi + "villes", httpOptions).subscribe(
       data => {
         this.villes = data;
         console.log(data);
