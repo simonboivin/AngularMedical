@@ -1,3 +1,38 @@
-<p>patients works!</p>
+<div class="container mt-5">
+    <div class="entete_fenetre"> Liste des Patients</div>
+    <div class="conteneur_fenetre">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>Téléphone</th>
+                    <th>Ville</th>
+                    <th>
+                        <fa-icon [icon]="faCogs"></fa-icon>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td> {{ patient.nom }} </td>
+                    <td> {{ patient.prenom }} </td>
+                    <td> {{ patient.email }} </td>
+                    <td> {{ patient.telephone }} </td>
+                    <td> {{ patient.ville.nom }} </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="fonctions">
+            <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success float-end">Nouveau
+                Patient
+            </button>
+        </div>
+    </div>
 
-<h1>{{ patient.$nom }} {{ patient.$prenom }} </h1>
+
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
+import { faCogs } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,7 +11,9 @@ import { Villes } from '../classes/villes';
 })
 export class PatientsComponent implements OnInit {
 
-  ville : Villes = new Villes(1, "Paris", 75000);
+  faCogs = faCogs;
+
+  ville: Villes = new Villes(1, "Paris", 75000);
   patient: Patients = new Patients(5, "Dalton", "Avrel", "0145247000", "avrel@dalton.org", this.ville);
 
   constructor() { }
