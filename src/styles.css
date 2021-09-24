@@ -2,6 +2,21 @@
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "previous_style.css";
+:root {
+    --bs-primary: #29afeb;
+    --bs-primary-rgb: 40, 170, 235;
+}
+
 body {
     background-image: url('src/assets/img/back.png');
+}
+
+.btn-primary {
+    background-color: #29afeb;
+    border-color: #259bd1;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background-color: #2192c7;
+    border-color: #259bd1;
 }

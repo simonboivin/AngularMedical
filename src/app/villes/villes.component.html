@@ -1,5 +1,12 @@
 <div class="container shadow-lg p-4 bg-light rounded">
-    <h1 class="h2 mb-3">Liste des Villes</h1>
+
+    <h1 class="h2  mx-2">Liste des Villes</h1>
+    <hr class="border border-primary mt-0 mb-3 ">
+    <div class="mb-3 text-end">
+        <button (click)="updateCities()" class="btn btn-primary">
+            <fa-icon [icon]="faSync"></fa-icon>
+        </button>
+    </div>
     <table class="table table-light table-striped table-hover">
         <thead class="table-dark">
             <tr>
@@ -21,5 +28,5 @@
             </tr>
         </tbody>
     </table>
- 
+
 </div>
