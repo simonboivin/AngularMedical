@@ -1,5 +1,6 @@
-<div class="container mt-5">
-    <div class="entete_fenetre"> Liste des Patients</div>
+<div class="container">
+    <h1 class="h2">Liste des Patients</h1>
+
     <div class="conteneur_fenetre">
         <table class="table table-striped align-middle">
             <thead>
@@ -16,13 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let patient of patientsList">
                     <td>{{ patient.id }}</td>
                     <td> {{ patient.nom }} </td>
                     <td> {{ patient.prenom }} </td>
                     <td> {{ patient.email }} </td>
                     <td> {{ patient.telephone }} </td>
                     <td> {{ patient.ville.nom }} </td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>

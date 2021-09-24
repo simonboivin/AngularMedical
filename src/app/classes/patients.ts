@@ -18,5 +18,4 @@ export class Patients {
         this.ville = ville;
     }
 
-
 }
