@@ -30,7 +30,9 @@
                 <td>{{ ville.codePostal }}</td>
                 <td>
                     <!--<a th:href="@{'/ville/edit/' + ${v.id}}"><i class="fas fa-edit"></i></a>-->
-                    <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
 
                 </td>
             </tr>
@@ -46,7 +48,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ajouter une ville</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" #closeModalButton data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">

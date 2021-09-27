@@ -12,6 +12,7 @@ import { environment } from "src/environments/environment";
 
 export class VillesService {
 
+
     constructor(private httpClient: HttpClient) { }
 
     loadCities(): Observable<Villes[]> {
@@ -22,8 +23,8 @@ export class VillesService {
         return this.httpClient.post<Villes>(environment.urlApi + "villes", newVille, httpOptions);
     }
 
-    deleteCity(villeId: number|undefined): Observable<void> {
-        return this.httpClient.delete<void>(environment.urlApi + "villes/" + villeId, httpOptions);
+    deleteCity(villeId: number | undefined): Observable<Object> {
+        return this.httpClient.delete(environment.urlApi + "villes/" + villeId, httpOptions);
     }
 
 }
