@@ -84,7 +84,7 @@
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text" id="addon-wrapping"><i class="fas fa-city pe-2"></i>Ville</span>
 
-                        <select class="form-select" name="ville" id="ville" [(ngModel)]="newPatient.ville" ngModel>
+                        <select class="form-select" name="ville" id="ville" [compareWith]="compareVilleFn" [(ngModel)]="newPatient.ville" ngModel>
                             <option *ngFor="let ville of villesList" [ngValue]="ville">{{ ville.nom }}</option>
 
                         </select>

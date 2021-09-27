@@ -95,5 +95,8 @@ export class PatientsComponent implements OnInit {
     } );
   }
 
+  compareVilleFn(c1: Villes, c2: Villes): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
+}
 
 }
