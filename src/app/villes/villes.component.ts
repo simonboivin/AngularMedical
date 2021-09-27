@@ -55,7 +55,7 @@ export class VillesComponent implements OnInit {
   }
 
   submitForm (): void {
-    if ( this.newVille == undefined ) {
+    if ( this.newVille.id == undefined ) {
       console.log( this.newVille );
       this.villesService.addCities( this.newVille ).subscribe(
         data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.refreshList(); }

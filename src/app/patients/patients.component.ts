@@ -61,7 +61,7 @@ export class PatientsComponent implements OnInit {
 
 
   submitForm (): void {
-    if ( this.newPatient == undefined ) {
+    if ( this.newPatient.id == undefined ) {
       console.log( this.newPatient );
       this.patientsService.addPatient( this.newPatient ).subscribe(
         data => {
@@ -95,5 +95,5 @@ export class PatientsComponent implements OnInit {
     } );
   }
 
- 
+
 }
