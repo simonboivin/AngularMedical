@@ -29,12 +29,13 @@
                 <td>{{ ville.nom }}</td>
                 <td>{{ ville.codePostal }}</td>
                 <td>
-                    <!--<a th:href="@{'/ville/edit/' + ${v.id}}"><i class="fas fa-edit"></i></a>-->
+                    <button type="button" class="btn btn-warning edit_patient_button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" (click)="editCity(ville.id)">
+                        <fa-icon [icon]=faEdit></fa-icon>
+                    </button> &nbsp;
                     <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)">
                         <fa-icon [icon]="faTrash"></fa-icon>
-                    </button>
-
-                </td>
+                    </button>                </td>
             </tr>
         </tbody>
     </table>

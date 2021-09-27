@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Villes } from "../classes/villes";
 import { environment } from 'src/environments/environment';
-import { faCogs, faSync, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCogs, faEdit, faSync, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { VillesService } from '../services/villes.service';
 
 
@@ -26,6 +26,7 @@ export class VillesComponent implements OnInit {
 
   // import uses fa icons
   faCogs = faCogs;
+  faEdit = faEdit;
   faSync = faSync;
   faTrash = faTrash;
 
@@ -34,6 +35,7 @@ export class VillesComponent implements OnInit {
   villesList: Array<Villes> = [];
   nom: string = "";
   newVille: Villes = new Villes();
+
 
   constructor( private villesService: VillesService ) { }
 
@@ -53,10 +55,16 @@ export class VillesComponent implements OnInit {
   }
 
   submitForm (): void {
-    console.log( this.newVille );
-    this.villesService.addCities( this.newVille ).subscribe(
-      data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.updateCities(); }
-    );
+    if ( this.newVille == undefined ) {
+      console.log( this.newVille );
+      this.villesService.addCities( this.newVille ).subscribe(
+        data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.updateCities(); }
+      );
+    } else {
+      this.villesService.editCity( this.newVille ).subscribe( data => {
+        console.log( data ); this.closeButtonElement.nativeElement.click(); this.updateCities();
+      } );
+    }
   }
 
   deleteCity ( idVille: number | undefined ) {
@@ -68,6 +76,13 @@ export class VillesComponent implements OnInit {
       } );
 
     }
+  }
+
+  editCity ( idVille: number | undefined ) {
+    console.log( "edition ville" );
+    this.villesService.getCity( idVille ).subscribe( data => {
+      this.newVille = data;
+    } );
   }
 
 }
