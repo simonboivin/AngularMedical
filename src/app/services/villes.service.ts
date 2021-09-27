@@ -22,4 +22,8 @@ export class VillesService {
         return this.httpClient.post<Villes>(environment.urlApi + "villes", newVille, httpOptions);
     }
 
+    deleteCity(villeId: number|undefined): Observable<void> {
+        return this.httpClient.delete<void>(environment.urlApi + "villes/" + villeId, httpOptions);
+    }
+
 }
