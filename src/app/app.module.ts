@@ -10,6 +10,7 @@ import { PatientsComponent } from './patients/patients.component';
 import { VillesComponent } from './villes/villes.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
