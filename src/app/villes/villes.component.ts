@@ -1,8 +1,10 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Villes } from "../classes/villes";
 import { environment } from 'src/environments/environment';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -23,7 +25,7 @@ export class VillesComponent implements OnInit {
 
   faSync = faSync;
 
-  villes: Array<Villes> = [];
+  villesList: Array<Villes> = [];
   nom: string = ""
   ville: Villes = new Villes();
 
@@ -38,7 +40,7 @@ export class VillesComponent implements OnInit {
   updateCities(): void {
     this.http.get<Villes[]>(environment.urlApi + "villes", httpOptions).subscribe(
       data => {
-        this.villes = data;
+        this.villesList = data;
         console.log(data);
       }
     );

@@ -1,40 +1,88 @@
 <div class="container shadow-lg p-4 bg-light rounded">
-    <h1 class="h2 mb-3">Liste des Patients</h1>
-
-    <div class="conteneur_fenetre">
-        <table class="table table-light table-striped align-middle">
-            <thead class="table-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Mail</th>
-                    <th>Téléphone</th>
-                    <th>Ville</th>
-                    <th>
-                        <fa-icon [icon]="faCogs"></fa-icon>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let patient of patientsList">
-                    <td>{{ patient.id }}</td>
-                    <td> {{ patient.nom }} </td>
-                    <td> {{ patient.prenom }} </td>
-                    <td> {{ patient.email }} </td>
-                    <td> {{ patient.telephone }} </td>
-                    <td> {{ patient.ville.nom }} </td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <br />
-        <div class="fonctions">
-            <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success float-end">Nouveau
-                Patient
-            </button>
-        </div>
+    <h1 class="h2  mx-2">Liste des Patients</h1>
+    <hr class="border border-primary mt-0 mb-3 ">
+    <div class="mb-3 text-end">
+        <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success">Nouveau
+            patient</button>
+        <button (click)="updatePageList()" class="btn btn-primary ms-3">
+            <fa-icon [icon]="faSync"></fa-icon>
+        </button>
     </div>
+    <table class="table table-light table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Mail</th>
+                <th>Téléphone</th>
+                <th>Ville</th>
+                <th>
+                    <fa-icon [icon]="faCogs"></fa-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patientsList">
+                <td>{{ patient.id }}</td>
+                <td> {{ patient.nom }} </td>
+                <td> {{ patient.prenom }} </td>
+                <td> {{ patient.email }} </td>
+                <td> {{ patient.telephone }} </td>
+                <td> {{ patient.ville?.nom }} </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 
 
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addPatientModal" tabindex="-1" aria-labelledby="addPatientModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <form name="patientAddForm" ngNativeValidate (submit)="submitForm()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un patient</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user-edit pe-2"></i>Prénom
+                            et
+                            Nom</span>
+                        <input type="text" class="form-control" name="prenom" placeholder="Prénom"
+                            [(ngModel)]="newPatient.prenom" ngModel required>
+                        <input type="text" class="form-control" name="nom" placeholder="Nom"
+                            [(ngModel)]="newPatient.nom" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at pe-2"></i>Email</span>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                            [(ngModel)]="newPatient.email" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i
+                                class="fas fa-phone-alt pe-2"></i>Téléphone</span>
+                        <input type="tel" class="form-control" name="telephone" id="" placeholder="Téléphone"
+                            [(ngModel)]="newPatient.telephone" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-city pe-2"></i>Ville</span>
+                        <select class="form-select" name="ville" id="ville" [(ngModel)]="newPatient.ville" ngModel>
+                            <option *ngFor="let ville of villesList" [ngValue]="ville">{{ ville.nom }}</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" id="valider_button">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

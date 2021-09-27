@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let ville of villes">
+            <tr *ngFor="let ville of villesList">
                 <td>{{ ville.id }}</td>
                 <td>{{ ville.nom }}</td>
                 <td>{{ ville.codePostal }}</td>
@@ -39,7 +39,7 @@
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form name="villeForm" (submit)="submitForm()">
+        <form name="villeForm" ngNativeValidate (submit)="submitForm()">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ajouter une ville</h5>
@@ -53,7 +53,7 @@
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"
-                            [(ngModel)]="ville.nom" minlength="2" #name="ngModel" required>
+                            [(ngModel)]="ville.nom" ngModel minlength="2"  required>
                     </div>
 
                     <div class="mb-3">
@@ -63,8 +63,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-secondary">Valider</button>
-                    <button type="reset" class="btn btn-danger float-end">Annuler</button>
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end">Reset</button>
                 </div>
             </div>
         </form>
