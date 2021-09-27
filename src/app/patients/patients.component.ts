@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
 import { faCogs, faSync } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment';
+
 
 
 const httpOptions = {
@@ -23,12 +24,17 @@ const httpOptions = {
 
 export class PatientsComponent implements OnInit {
 
+
+
+
   faCogs = faCogs;
   faSync = faSync;
 
   patientsList: Array<Patients> = [];
   newPatient: Patients = new Patients();
   villesList: Array<Villes> = [];
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -59,6 +65,7 @@ export class PatientsComponent implements OnInit {
       data => {
         console.log(data);
         this.updatePageList();
+
       }
     )
   }

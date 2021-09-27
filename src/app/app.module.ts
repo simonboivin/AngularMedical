@@ -10,7 +10,8 @@ import { PatientsComponent } from './patients/patients.component';
 import { VillesComponent } from './villes/villes.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from "@angular/forms"
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from "@angular/forms"
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
