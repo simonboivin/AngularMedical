@@ -9,6 +9,8 @@
 
 body {
     background-image: url('src/assets/img/back.png');
+    padding-top: 80px;
+    padding-bottom: 60px;
 }
 
 .btn-primary {

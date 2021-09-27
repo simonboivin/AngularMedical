@@ -1,4 +1,5 @@
 <div class="container shadow-lg p-4 bg-light rounded">
+
     <h1 class="h2  mx-2">Liste des Patients</h1>
     <hr class="border border-primary mt-0 mb-3 ">
     <div class="mb-3 text-end">
@@ -8,35 +9,36 @@
             <fa-icon [icon]="faSync"></fa-icon>
         </button>
     </div>
-    <table class="table table-light table-striped align-middle">
-        <thead class="table-dark">
-            <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Mail</th>
-                <th>Téléphone</th>
-                <th>Ville</th>
-                <th>
-                    <fa-icon [icon]="faCogs"></fa-icon>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let patient of patientsList">
-                <td>{{ patient.id }}</td>
-                <td> {{ patient.nom }} </td>
-                <td> {{ patient.prenom }} </td>
-                <td> {{ patient.email }} </td>
-                <td> {{ patient.telephone }} </td>
-                <td> {{ patient.ville?.nom }} </td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <table class="table table-light table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>Téléphone</th>
+                    <th>Ville</th>
+                    <th>
+                        <fa-icon [icon]="faCogs"></fa-icon>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patientsList">
+                    <td>{{ patient.id }}</td>
+                    <td> {{ patient.nom }} </td>
+                    <td> {{ patient.prenom }} </td>
+                    <td> {{ patient.email }} </td>
+                    <td> {{ patient.telephone }} </td>
+                    <td> {{ patient.ville?.nom }} </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
 
-
+    </div>
 
 </div>
 
@@ -47,7 +49,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ajouter un patient</h5>
-                    <button type="button" id="closeModalButton" class="btn-close" data-bs-dismiss="modal"
+                    <button type="button" #closeModalButton class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

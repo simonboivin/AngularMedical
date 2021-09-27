@@ -1,32 +1,32 @@
-<header class="mb-4">
+<header class="container-fluid  px-0 ">
 
 
-    <nav class="navbar navbar-dark bg-primary bg-gradient">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-5" href="#">
-                <H1 class="my-0 h2">
-                    <fa-icon [icon]="faShieldVirus"></fa-icon> Arkham Santé
-                </H1>
-            </a>
-            <nav class="nav ms-2 me-auto">
+    <nav class="navbar navbar-dark bg-primary bg-gradient fixed-top">
 
-                <a class="nav-link text-light fs-5" href="/patients">Patients</a>
-                <a class="nav-link text-light fs-5" href="/villes">Villes</a>
+        <a class="navbar-brand ms-5" href="#">
+            <H1 class="my-0 h2">
+                <fa-icon [icon]="faShieldVirus"></fa-icon> Arkham Santé
+            </H1>
+        </a>
+        <nav class="nav ms-2 me-auto">
 
-            </nav>
+            <a class="nav-link text-light fs-5" href="/patients">Patients</a>
+            <a class="nav-link text-light fs-5" href="/villes">Villes</a>
 
-            <div class="dropdown me-5">
-                <a class="btn btn-outline-light bg-transparent dropdown-toggle ms-3 border-0" role="button"
-                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> <img class="image_profils"
-                        src="assets/profils/user.png" alt="photo_profil"></a>
+        </nav>
 
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Gérer
-                            mon profil</a></li>
-                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                </ul>
-            </div>
+        <div class="dropdown me-5">
+            <a class="btn btn-outline-light bg-transparent dropdown-toggle ms-3 border-0" role="button"
+                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> <img class="image_profils"
+                    src="assets/profils/user.png" alt="photo_profil"></a>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Gérer
+                        mon profil</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
         </div>
+
     </nav>
 
 

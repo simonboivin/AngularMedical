@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
@@ -24,16 +24,13 @@ const httpOptions = {
 
 export class PatientsComponent implements OnInit {
 
-
-
-
+  @ViewChild('closeModalButton') closeButtonElement: any;
   faCogs = faCogs;
   faSync = faSync;
 
   patientsList: Array<Patients> = [];
   newPatient: Patients = new Patients();
   villesList: Array<Villes> = [];
-
 
 
   constructor(private http: HttpClient) { }
@@ -64,8 +61,8 @@ export class PatientsComponent implements OnInit {
     this.http.post<Patients>(environment.urlApi + "patients", this.newPatient, httpOptions).subscribe(
       data => {
         console.log(data);
+        this.closeButtonElement.nativeElement.click();
         this.updatePageList();
-
       }
     )
   }
