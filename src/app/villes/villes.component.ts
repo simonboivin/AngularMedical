@@ -41,11 +41,11 @@ export class VillesComponent implements OnInit {
 
   ngOnInit (): void {
 
-    this.updateCities();
+    this.refreshList();
 
   }
 
-  updateCities (): void {
+  refreshList (): void {
     this.villesService.loadCities().subscribe(
       data => {
         this.villesList = data;
@@ -58,11 +58,11 @@ export class VillesComponent implements OnInit {
     if ( this.newVille == undefined ) {
       console.log( this.newVille );
       this.villesService.addCities( this.newVille ).subscribe(
-        data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.updateCities(); }
+        data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.refreshList(); }
       );
     } else {
       this.villesService.editCity( this.newVille ).subscribe( data => {
-        console.log( data ); this.closeButtonElement.nativeElement.click(); this.updateCities();
+        console.log( data ); this.closeButtonElement.nativeElement.click(); this.refreshList();
       } );
     }
   }
@@ -72,7 +72,7 @@ export class VillesComponent implements OnInit {
       console.log( "Suppression de la ville #" + idVille );
       this.villesService.deleteCity( idVille ).subscribe( data => {
         this.closeButtonElement.nativeElement.click();
-        console.log( data ); this.updateCities();
+        console.log( data ); this.refreshList();
       } );
 
     }

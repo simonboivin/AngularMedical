@@ -7,7 +7,7 @@
         <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success ms-3">Nouvelle
             ville</button>
 
-        <button (click)="updateCities()" class="btn btn-primary ms-3">
+        <button (click)="refreshList()" class="btn btn-primary ms-3">
             <fa-icon [icon]="faSync"></fa-icon>
         </button>
 
@@ -35,7 +35,8 @@
                     </button> &nbsp;
                     <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)">
                         <fa-icon [icon]="faTrash"></fa-icon>
-                    </button>                </td>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

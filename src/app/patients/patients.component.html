@@ -5,7 +5,7 @@
     <div class="mb-3 text-end">
         <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success">Nouveau
             patient</button>
-        <button (click)="updatePageList()" class="btn btn-primary ms-3">
+        <button (click)="refreshList()" class="btn btn-primary ms-3">
             <fa-icon [icon]="faSync"></fa-icon>
         </button>
     </div>
@@ -32,7 +32,15 @@
                     <td> {{ patient.email }} </td>
                     <td> {{ patient.telephone }} </td>
                     <td> {{ patient.ville?.nom }} </td>
-                    <td></td>
+                    <td> <button type="button" class="btn btn-warning edit_patient_button" data-bs-toggle="modal"
+                            data-bs-target="#addPatientModal" (click)="editPatient(patient.id)">
+                            <fa-icon [icon]=faEdit></fa-icon>
+                        </button> &nbsp;
+                        <button type="button" class="btn btn-danger delete_patient_button"
+                            (click)="deletePatient(patient.id)">
+                            <fa-icon [icon]="faTrash"></fa-icon>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -75,6 +83,7 @@
                     </div>
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text" id="addon-wrapping"><i class="fas fa-city pe-2"></i>Ville</span>
+
                         <select class="form-select" name="ville" id="ville" [(ngModel)]="newPatient.ville" ngModel>
                             <option *ngFor="let ville of villesList" [ngValue]="ville">{{ ville.nom }}</option>
 
