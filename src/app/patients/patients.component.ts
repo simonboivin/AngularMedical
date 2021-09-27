@@ -4,7 +4,8 @@ import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
 import { faCogs, faSync } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment';
-
+import { PatientsService } from '../services/patients.service';
+import { VillesService } from '../services/villes.service';
 
 
 const httpOptions = {
@@ -33,32 +34,32 @@ export class PatientsComponent implements OnInit {
   villesList: Array<Villes> = [];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private patientsService: PatientsService, private villeService: VillesService) { }
 
   ngOnInit(): void {
     this.updatePageList();
   }
 
   updatePageList(): void {
-    this.http.get<Villes[]>(environment.urlApi + "villes", httpOptions).subscribe(
+
+    this.villeService.loadCities().subscribe(
       data => {
         this.villesList = data;
         console.log(data);
       }
     );
-    this.http.get<Patients[]>(environment.urlApi + "patients", httpOptions).subscribe(
+
+    this.patientsService.loadPatients().subscribe(
       data => {
-        console.log('Chargement de la liste');
         this.patientsList = data;
         console.log(data);
-      }
-    );
+      });
   }
 
 
   submitForm(): void {
     console.log(this.newPatient);
-    this.http.post<Patients>(environment.urlApi + "patients", this.newPatient, httpOptions).subscribe(
+    this.patientsService.addPatient(this.newPatient).subscribe(
       data => {
         console.log(data);
         this.closeButtonElement.nativeElement.click();

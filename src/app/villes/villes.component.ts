@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Villes } from "../classes/villes";
 import { environment } from 'src/environments/environment';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { VillesService } from '../services/villes.service';
 
 
 
@@ -27,9 +28,9 @@ export class VillesComponent implements OnInit {
 
   villesList: Array<Villes> = [];
   nom: string = ""
-  ville: Villes = new Villes();
+  newVille: Villes = new Villes();
 
-  constructor(private http: HttpClient) { }
+  constructor(private villesService: VillesService) { }
 
   ngOnInit(): void {
 
@@ -38,7 +39,7 @@ export class VillesComponent implements OnInit {
   }
 
   updateCities(): void {
-    this.http.get<Villes[]>(environment.urlApi + "villes", httpOptions).subscribe(
+    this.villesService.loadCities().subscribe(
       data => {
         this.villesList = data;
         console.log(data);
@@ -47,8 +48,8 @@ export class VillesComponent implements OnInit {
   }
 
   submitForm(): void {
-    console.log(this.ville);
-    this.http.post<Villes>(environment.urlApi + "villes", this.ville, httpOptions).subscribe(
+    console.log(this.newVille);
+    this.villesService.addCities(this.newVille).subscribe(
       data => { console.log(data); this.updateCities() }
     )
   }
