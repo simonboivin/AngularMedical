@@ -5,6 +5,7 @@ import { faCogs, faEdit, faSync, faTrash } from '@fortawesome/free-solid-svg-ico
 import { environment } from 'src/environments/environment';
 import { PatientsService } from '../services/patients.service';
 import { VillesService } from '../services/villes.service';
+import { PatientsSorters } from '../sorters/patients.sorters';
 
 
 const httpOptions = {
@@ -14,6 +15,8 @@ const httpOptions = {
     }
   )
 };
+
+
 
 
 @Component( {
@@ -37,9 +40,13 @@ export class PatientsComponent implements OnInit {
   villesList: Array<Villes> = [];
 
 
-  constructor( private patientsService: PatientsService, private villeService: VillesService ) { }
+  constructor( private patientsService: PatientsService, private villeService: VillesService, private patientsSorters: PatientsSorters ) { }
+
+
+  sorter: ( a: any, b: any ) => number = this.patientsSorters.sorterByIdAsc;
 
   ngOnInit (): void {
+
     this.refreshList();
 
   }
@@ -55,7 +62,7 @@ export class PatientsComponent implements OnInit {
 
     this.patientsService.loadPatients().subscribe(
       data => {
-        this.patientsList = data;
+        this.patientsList = data.sort( this.sorter );
         console.log( data );
       } );
 
@@ -103,4 +110,63 @@ export class PatientsComponent implements OnInit {
     return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 
+  sortByIdAsc (): void {
+    this.sorter = this.patientsSorters.sorterByIdAsc;
+    this.refreshList();
+  }
+
+  sortByNameAsc (): void {
+    this.sorter = this.patientsSorters.sorterByNameAsc;
+    this.refreshList();
+  }
+
+  sortByPrenomAsc (): void {
+    this.sorter = this.patientsSorters.sorterByPrenomAsc;
+    this.refreshList();
+  }
+
+  sortByEmailAsc (): void {
+    this.sorter = this.patientsSorters.sorterByEmailAsc;
+    this.refreshList();
+  }
+
+  sortByTelephoneAsc (): void {
+    this.sorter = this.patientsSorters.sorterByTelephoneAsc;
+    this.refreshList();
+  }
+
+  sortByVilleAsc (): void {
+    this.sorter = this.patientsSorters.sorterByVilleAsc;
+    this.refreshList();
+  }
+
+  sortByIdDesc (): void {
+    this.sorter = this.patientsSorters.sorterByIdDesc;
+    this.refreshList();
+  }
+
+  sortByNameDesc (): void {
+    this.sorter = this.patientsSorters.sorterByNameDesc;
+    this.refreshList();
+  }
+
+  sortByPrenomDesc (): void {
+    this.sorter = this.patientsSorters.sorterByPrenomDesc;
+    this.refreshList();
+  }
+
+  sortByEmailDesc (): void {
+    this.sorter = this.patientsSorters.sorterByEmailDesc;
+    this.refreshList();
+  }
+
+  sortByTelephoneDesc (): void {
+    this.sorter = this.patientsSorters.sorterByTelephoneDesc;
+    this.refreshList();
+  }
+
+  sortByVilleDesc (): void {
+    this.sorter = this.patientsSorters.sorterByVilleDesc;
+    this.refreshList();
+  }
 }

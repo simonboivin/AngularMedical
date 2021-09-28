@@ -14,12 +14,31 @@
         <table class="table table-light table-striped align-middle">
             <thead class="table-dark">
                 <tr>
-                    <th>#</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Mail</th>
-                    <th>Téléphone</th>
-                    <th>Ville</th>
+                    <th># &nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByIdAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByIdDesc()"> &darr; </a>
+                    </th>
+                    <th>Nom &nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByNameAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByNameDesc()"> &darr; </a>
+                    </th>
+                    <th>Prénom&nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByPrenomAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByPrenomDesc()"> &darr; </a>
+                    </th>
+                    <th>Mail&nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByEmailAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByEmailDesc()"> &darr; </a>
+                    </th>
+                    <th>Téléphone &nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByTelephoneAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByTelephoneDesc()"> &darr;
+                        </a>
+                    </th>
+                    <th>Ville &nbsp;
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByVilleAsc()"> &uarr; </a>
+                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByVilleDesc()"> &darr; </a>
+                    </th>
                     <th>
                         <fa-icon [icon]="faCogs"></fa-icon>
                     </th>
