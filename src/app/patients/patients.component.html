@@ -3,7 +3,8 @@
     <h1 class="h2  mx-2">Liste des Patients</h1>
     <hr class="border border-primary mt-0 mb-3 ">
     <div class="mb-3 text-end">
-        <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success">Nouveau
+        <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success"
+            (click)="refreshList()">Nouveau
             patient</button>
         <button (click)="refreshList()" class="btn btn-primary ms-3">
             <fa-icon [icon]="faSync"></fa-icon>
@@ -84,7 +85,8 @@
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text" id="addon-wrapping"><i class="fas fa-city pe-2"></i>Ville</span>
 
-                        <select class="form-select" name="ville" id="ville" [compareWith]="compareVilleFn" [(ngModel)]="newPatient.ville" ngModel>
+                        <select class="form-select" name="ville" id="ville" [compareWith]="compareVilleFn"
+                            [(ngModel)]="newPatient.ville" ngModel>
                             <option *ngFor="let ville of villesList" [ngValue]="ville">{{ ville.nom }}</option>
 
                         </select>

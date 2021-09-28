@@ -26,6 +26,7 @@ export class PatientsComponent implements OnInit {
 
   @ViewChild( 'closeModalButton' ) closeButtonElement: any;
 
+
   faCogs = faCogs;
   faEdit = faEdit;
   faSync = faSync;
@@ -57,6 +58,8 @@ export class PatientsComponent implements OnInit {
         this.patientsList = data;
         console.log( data );
       } );
+
+    this.newPatient = new Patients();
   }
 
 
@@ -89,14 +92,15 @@ export class PatientsComponent implements OnInit {
   }
 
   editPatient ( idPatient: number | undefined ) {
+    this.refreshList();
     this.patientsService.getPatient( idPatient ).subscribe( data => {
       this.newPatient = data;
 
     } );
   }
 
-  compareVilleFn(c1: Villes, c2: Villes): boolean {
+  compareVilleFn ( c1: Villes, c2: Villes ): boolean {
     return c1 && c2 ? c1.id === c2.id : c1 === c2;
-}
+  }
 
 }
