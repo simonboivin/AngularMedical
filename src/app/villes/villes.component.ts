@@ -50,8 +50,10 @@ export class VillesComponent implements OnInit {
       data => {
         this.villesList = data;
         console.log( data );
+
       }
     );
+    this.newVille = new Villes();
   }
 
   submitForm (): void {
@@ -79,6 +81,7 @@ export class VillesComponent implements OnInit {
   }
 
   editCity ( idVille: number | undefined ) {
+    this.refreshList();
     console.log( "edition ville" );
     this.villesService.getCity( idVille ).subscribe( data => {
       this.newVille = data;
