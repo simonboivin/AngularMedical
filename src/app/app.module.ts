@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginFormComponent } from './login-form/login-form.component'
+import { LoginFormComponent } from './login-form/login-form.component';
+import { LogoutComponent } from './logout/logout.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginFormComponent } from './login-form/login-form.component'
     VillesComponent,
     UtilisateursComponent,
     DashboardComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
