@@ -8,7 +8,7 @@
                 <fa-icon [icon]="faShieldVirus"></fa-icon> Arkham Santé
             </H1>
         </a>
-        <nav class="nav ms-2 me-auto">
+        <nav class="nav ms-2 me-auto" *ngIf="guardian.isConnected()">
 
             <a class="nav-link text-light fs-5" href="/patients">Patients</a>
             <a class="nav-link text-light fs-5" href="/villes">Villes</a>

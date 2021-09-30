@@ -18,8 +18,15 @@ export class GuardianGuard implements CanActivate {
     } else {
       this.router.navigate( ["login"] );
       return false;
-    }
+    };
+  }
 
+  isConnected (): Boolean {
+    if ( sessionStorage.getItem( "connectedUser" ) ) {
+      return true;
+    } else {
+      return false;
+    };
   }
 
 }
