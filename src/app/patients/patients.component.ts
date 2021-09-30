@@ -75,31 +75,6 @@ export class PatientsComponent implements OnInit {
   }
 
 
-  submitForm (): void {
-    if ( this.newPatient.id == undefined ) {
-      console.log( this.newPatient );
-      this.patientsService.addPatient( this.newPatient ).subscribe(
-        data => {
-          console.log( data );
-          this.closeButtonElement.nativeElement.click();
-          this.refreshList();
-          this.succes = true;
-        }, error => {
-          this.erreur = true;
-        }
-      );
-    } else {
-      this.patientsService.editPatient( this.newPatient ).subscribe( data => {
-        console.log( data );
-        this.closeButtonElement.nativeElement.click();
-        this.refreshList();
-        this.succes = true;
-      }, error => {
-        this.erreur = true;
-      } );
-    }
-  }
-
   deletePatient ( idPatient: number | undefined ) {
     if ( confirm( "Voulez-vous supprimer le patient #" + idPatient + "?" ) ) {
       this.patientsService.deletePatient( idPatient ).subscribe( data => {
@@ -110,17 +85,6 @@ export class PatientsComponent implements OnInit {
         this.erreur = true;
       } );
     }
-  }
-
-  editPatient ( idPatient: number | undefined ) {
-    this.refreshList();
-    this.patientsService.getPatient( idPatient ).subscribe( data => {
-      this.newPatient = data;
-      this.refreshList();
-      this.succes = true;
-    }, error => {
-      this.erreur = true;
-    } );
   }
 
   compareVilleFn ( c1: Villes, c2: Villes ): boolean {

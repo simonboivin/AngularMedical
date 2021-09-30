@@ -14,7 +14,9 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { LogoutComponent } from './logout/logout.component'
+import { LogoutComponent } from './logout/logout.component';
+import { PatientsDetailsComponent } from './patients-details/patients-details.component';
+import { VillesDetailsComponent } from './villes-details/villes-details.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LogoutComponent } from './logout/logout.component'
     UtilisateursComponent,
     DashboardComponent,
     LoginFormComponent,
-    LogoutComponent
+    LogoutComponent,
+    PatientsDetailsComponent,
+    VillesDetailsComponent
   ],
   imports: [
     BrowserModule,

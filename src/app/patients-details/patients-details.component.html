@@ -1,0 +1,54 @@
+<div class="container">
+
+    <form name="patientAddForm" ngNativeValidate (submit)="submitForm()">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="patient.id == undefined">Ajouter un patient
+                    </h5>
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="patient.id != undefined">Modifier un patient
+                    </h5>
+                    <button type="button" #closeModalButton class="btn-close" [routerLink]="['/patients']"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user-edit pe-2"></i>Prénom
+                            et Nom</span>
+                        <input type="text" class="form-control" name="prenom" placeholder="Prénom"
+                            [(ngModel)]="patient.prenom" ngModel required>
+                        <input type="text" class="form-control" name="nom" placeholder="Nom" [(ngModel)]="patient.nom"
+                            ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at pe-2"></i>Email</span>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                            [(ngModel)]="patient.email" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i
+                                class="fas fa-phone-alt pe-2"></i>Téléphone</span>
+                        <input type="tel" class="form-control" name="telephone" id="" placeholder="Téléphone"
+                            [(ngModel)]="patient.telephone" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fas fa-city pe-2"></i>Ville</span>
+
+                        <select class="form-select" name="ville" id="ville" [compareWith]="compareVilleFn"
+                            [(ngModel)]="patient.ville" ngModel>
+                            <option *ngFor="let ville of villesList" [ngValue]="ville">{{ ville.nom }}</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" id="valider_button">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end">Reset</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
