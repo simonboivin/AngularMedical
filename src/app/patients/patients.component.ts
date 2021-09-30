@@ -39,6 +39,8 @@ export class PatientsComponent implements OnInit {
   newPatient: Patients = new Patients();
   villesList: Array<Villes> = [];
 
+  erreur: Boolean = false;
+  succes: Boolean = false;
 
   constructor( private patientsService: PatientsService, private villeService: VillesService, private patientsSorters: PatientsSorters ) { }
 
@@ -52,6 +54,9 @@ export class PatientsComponent implements OnInit {
   }
 
   refreshList (): void {
+
+    this.succes = false;
+    this.erreur = false;
 
     this.villeService.loadCities().subscribe(
       data => {
@@ -78,6 +83,9 @@ export class PatientsComponent implements OnInit {
           console.log( data );
           this.closeButtonElement.nativeElement.click();
           this.refreshList();
+          this.succes = true;
+        }, error => {
+          this.erreur = true;
         }
       );
     } else {
@@ -85,6 +93,9 @@ export class PatientsComponent implements OnInit {
         console.log( data );
         this.closeButtonElement.nativeElement.click();
         this.refreshList();
+        this.succes = true;
+      }, error => {
+        this.erreur = true;
       } );
     }
   }
@@ -94,6 +105,9 @@ export class PatientsComponent implements OnInit {
       this.patientsService.deletePatient( idPatient ).subscribe( data => {
         this.closeButtonElement.nativeElement.click();
         this.refreshList();
+        this.succes = true;
+      }, error => {
+        this.erreur = true;
       } );
     }
   }
@@ -102,7 +116,10 @@ export class PatientsComponent implements OnInit {
     this.refreshList();
     this.patientsService.getPatient( idPatient ).subscribe( data => {
       this.newPatient = data;
-
+      this.refreshList();
+      this.succes = true;
+    }, error => {
+      this.erreur = true;
     } );
   }
 

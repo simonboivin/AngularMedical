@@ -2,6 +2,12 @@
 
     <h1 class="h2  mx-2">Liste des Patients</h1>
     <hr class="border border-primary mt-0 mb-3 ">
+    <div class="alert alert-danger" role="alert" *ngIf="erreur">
+        Erreur
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="succes" >
+        Opération effectuée avec succès!
+    </div>
     <div class="mb-3 text-end">
         <button data-bs-toggle="modal" data-bs-target="#addPatientModal" class="btn btn-success"
             (click)="refreshList()">Nouveau
@@ -11,6 +17,7 @@
         </button>
     </div>
     <div>
+
         <table class="table table-light table-striped align-middle">
             <thead class="table-dark">
                 <tr>
