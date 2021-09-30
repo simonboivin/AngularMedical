@@ -6,6 +6,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PatientsDetailsComponent } from './patients-details/patients-details.component';
 import { PatientsComponent } from './patients/patients.component';
+import { RdvComponent } from './rdv/rdv.component';
 import { VillesDetailsComponent } from './villes-details/villes-details.component';
 import { VillesComponent } from './villes/villes.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "patients/addedit/:id", component: PatientsDetailsComponent, canActivate: [GuardianGuard] },
   { path: "villes", component: VillesComponent, canActivate: [GuardianGuard] },
   { path: "villes/addedit/:id", component: VillesDetailsComponent, canActivate: [GuardianGuard] },
+  { path: "rdv", component: RdvComponent, canActivate: [GuardianGuard] }
 ];
 
 @NgModule( {
