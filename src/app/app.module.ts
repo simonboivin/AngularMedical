@@ -16,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PatientsDetailsComponent } from './patients-details/patients-details.component';
-import { VillesDetailsComponent } from './villes-details/villes-details.component'
+import { VillesDetailsComponent } from './villes-details/villes-details.component';
+import { RdvComponent } from './rdv/rdv.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VillesDetailsComponent } from './villes-details/villes-details.componen
     LoginFormComponent,
     LogoutComponent,
     PatientsDetailsComponent,
-    VillesDetailsComponent
+    VillesDetailsComponent,
+    RdvComponent
   ],
   imports: [
     BrowserModule,
