@@ -1,1 +1,33 @@
-<p>villes-details works!</p>
+<div class="container">
+    <form name="villeForm" ngNativeValidate (submit)="submitForm()">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="ville.id == undefined">Ajouter une ville</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="ville.id != undefined">Modifier une ville
+                    </h5>
+                    <button type="button" class="btn-close" #closeModalButton [routerLink]="['/villes']"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"
+                            [(ngModel)]="ville.nom" ngModel minlength="2" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cp" class="form-label">Code Postal</label>
+                        <input type="text" class="form-control" id="cp" name="cp" placeholder="Code Postal"
+                            [(ngModel)]="ville.codePostal" minlength="2" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end" *ngIf="ville.id == undefined">Reset</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

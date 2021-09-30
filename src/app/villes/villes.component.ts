@@ -56,18 +56,6 @@ export class VillesComponent implements OnInit {
     this.newVille = new Villes();
   }
 
-  submitForm (): void {
-    if ( this.newVille.id == undefined ) {
-      console.log( this.newVille );
-      this.villesService.addCities( this.newVille ).subscribe(
-        data => { console.log( data ); this.closeButtonElement.nativeElement.click(); this.refreshList(); }
-      );
-    } else {
-      this.villesService.editCity( this.newVille ).subscribe( data => {
-        console.log( data ); this.closeButtonElement.nativeElement.click(); this.refreshList();
-      } );
-    }
-  }
 
   deleteCity ( idVille: number | undefined ) {
     if ( confirm( "Voulez-vous supprimer la ville #" + idVille + "?" ) ) {
@@ -78,14 +66,6 @@ export class VillesComponent implements OnInit {
       } );
 
     }
-  }
-
-  editCity ( idVille: number | undefined ) {
-    this.refreshList();
-    console.log( "edition ville" );
-    this.villesService.getCity( idVille ).subscribe( data => {
-      this.newVille = data;
-    } );
   }
 
 }

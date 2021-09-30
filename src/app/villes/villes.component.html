@@ -4,8 +4,7 @@
     <hr class="border border-primary mt-0 mb-3 ">
     <div class="mb-3 text-end">
 
-        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success ms-3"
-            (click)="refreshList()">Nouvelle
+        <button class="btn btn-success ms-3" [routerLink]="['/villes/addedit', 0 ]">Nouvelle
             ville</button>
 
         <button (click)="refreshList()" class="btn btn-primary ms-3">
@@ -30,8 +29,7 @@
                 <td>{{ ville.nom }}</td>
                 <td>{{ ville.codePostal }}</td>
                 <td>
-                    <button type="button" class="btn btn-warning edit_patient_button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" (click)="editCity(ville.id)">
+                    <button type="button" class="btn btn-warning edit_patient_button" [routerLink]="['/villes/addedit' , ville.id]">
                         <fa-icon [icon]=faEdit></fa-icon>
                     </button> &nbsp;
                     <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)">
@@ -42,40 +40,4 @@
         </tbody>
     </table>
 
-</div>
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form name="villeForm" ngNativeValidate (submit)="submitForm()">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une ville</h5>
-                    <button type="button" class="btn-close" #closeModalButton data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-
-
-
-                    <div class="mb-3">
-                        <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"
-                            [(ngModel)]="newVille.nom" ngModel minlength="2" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="cp" class="form-label">Code Postal</label>
-                        <input type="text" class="form-control" id="cp" name="cp" placeholder="Code Postal"
-                            [(ngModel)]="newVille.codePostal" minlength="2" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Valider</button>
-                    <button type="reset" class="btn btn-danger float-end">Reset</button>
-                </div>
-            </div>
-        </form>
-    </div>
 </div>

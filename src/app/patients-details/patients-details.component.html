@@ -42,8 +42,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-secondary" id="valider_button">Valider</button>
-                    <button type="reset" class="btn btn-danger float-end">Reset</button>
+                    <button type="submit" class="btn btn-success" id="valider_button">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end" *ngIf="patient.id == undefined">Reset</button>
                 </div>
             </div>
         </div>
