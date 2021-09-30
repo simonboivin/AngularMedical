@@ -11,7 +11,9 @@ import { VillesComponent } from './villes/villes.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginFormComponent } from './login-form/login-form.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FooterComponent,
     PatientsComponent,
     VillesComponent,
-    UtilisateursComponent
+    UtilisateursComponent,
+    DashboardComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
