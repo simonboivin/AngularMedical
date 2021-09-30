@@ -1,1 +1,15 @@
-<p>login-form works!</p>
+<div class="container">
+    <p>login-form works!</p>
+    <div class="text-danger" *ngIf="erreur">Nom d'utilisateur ou mot de passe incorrect<br><br></div>
+    <form name="monForm" action="" method="post" (submit)="authenticate()" ngNativeValidate>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="user.email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="user.password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
