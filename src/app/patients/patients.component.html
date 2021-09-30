@@ -5,7 +5,7 @@
     <div class="alert alert-danger" role="alert" *ngIf="erreur">
         Erreur
     </div>
-    <div class="alert alert-success" role="alert" *ngIf="succes" >
+    <div class="alert alert-success" role="alert" *ngIf="succes">
         Opération effectuée avec succès!
     </div>
     <div class="mb-3 text-end">
@@ -21,30 +21,57 @@
         <table class="table table-light table-striped align-middle">
             <thead class="table-dark">
                 <tr>
-                    <th># &nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByIdAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByIdDesc()"> &darr; </a>
+                    <th> <span>#</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByIdAsc()"> &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByIdDesc()"> &darr;
+                            </a></span>
                     </th>
-                    <th>Nom &nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByNameAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByNameDesc()"> &darr; </a>
+                    <th> <span>Nom</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByNameAsc()"> &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByNameDesc()"> &darr;
+                            </a></span>
                     </th>
-                    <th>Prénom&nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByPrenomAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByPrenomDesc()"> &darr; </a>
+                    <th>
+                        <span>Prénom</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByPrenomAsc()">
+                                &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByPrenomDesc()">
+                                &darr;
+                            </a></span>
                     </th>
-                    <th>Mail&nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByEmailAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByEmailDesc()"> &darr; </a>
+                    <th>
+                        <span>Mail</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByEmailAsc()"> &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByEmailDesc()">
+                                &darr;
+                            </a></span>
                     </th>
-                    <th>Téléphone &nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByTelephoneAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByTelephoneDesc()"> &darr;
-                        </a>
+                    <th>
+                        <span>Téléphone</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByTelephoneAsc()">
+                                &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByTelephoneDesc()">
+                                &darr;
+                            </a></span>
                     </th>
-                    <th>Ville &nbsp;
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByVilleAsc()"> &uarr; </a>
-                        <a class="btn btn-outline-secondary border-0 btn-sm" (click)="sortByVilleDesc()"> &darr; </a>
+                    <th>
+                        <span>Ville</span>
+                        <span class="btn-group ms-2" role="group" aria-label="Sorting">
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByVilleAsc()"> &uarr;
+                            </a>
+                            <a class="btn btn-outline-secondary border-0 btn-sm px-1" (click)="sortByVilleDesc()">
+                                &darr;
+                            </a></span>
                     </th>
                     <th>
                         <fa-icon [icon]="faCogs"></fa-icon>
