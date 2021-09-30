@@ -11,8 +11,11 @@ export class LogoutComponent implements OnInit {
   constructor( private router: Router ) { }
 
   ngOnInit (): void {
+
     sessionStorage.removeItem( "connectedUser" );
-    this.router.navigate( ['login'] );
+    setTimeout( () => {
+      this.router.navigate( ['login'] );
+    }, 1000 );
 
   }
 
