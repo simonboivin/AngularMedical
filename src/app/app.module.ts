@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PatientsDetailsComponent } from './patients-details/patients-details.component';
 import { VillesDetailsComponent } from './villes-details/villes-details.component';
-import { RdvComponent } from './rdv/rdv.component'
+import { RdvComponent } from './rdv/rdv.component';
+import { RdvDetailsComponent } from './rdv-details/rdv-details.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RdvComponent } from './rdv/rdv.component'
     LogoutComponent,
     PatientsDetailsComponent,
     VillesDetailsComponent,
-    RdvComponent
+    RdvComponent,
+    RdvDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,9 @@ import { RdvComponent } from './rdv/rdv.component'
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent],
   
 })

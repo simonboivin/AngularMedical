@@ -1,0 +1,66 @@
+<div class="container">
+
+    <form name="patientAddForm" ngNativeValidate (submit)="submitForm()">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="rdv.id == undefined">Ajouter un rendez-vous
+                    </h5>
+                    <h5 class="modal-title" id="exampleModalLabel" *ngIf="rdv.id != undefined">Modifier un rendez-vous
+                    </h5>
+                    <button type="button" #closeModalButton class="btn-close" [routerLink]="['/rdv']"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon class="me-2" [icon]="faUserInjured"></fa-icon>Patient
+                        </span>
+
+                        <select class="form-select" name="patient" id="patient" [compareWith]="comparePatientsFn"
+                            [(ngModel)]="rdv.patient" ngModel>
+                            <option *ngFor="let i of patientsList" [ngValue]="i">{{ i.prenom }} {{ i.nom }} </option>
+
+                        </select>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon class="me-2" [icon]="faCalendarAlt"></fa-icon>Date & Heure
+                        </span>
+                        <input type="datetime-local" class="form-control" name="date" id="date"
+                            [(ngModel)]="rdv.dateheure" ngModel required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon class="me-2" [icon]="faNotesMedical"></fa-icon>Type
+                        </span>
+                        <input type="text" class="form-control" name="type" id="type" [(ngModel)]="rdv.type" ngModel
+                            required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon class="me-2" [icon]="faClock"></fa-icon>Durée
+                        </span>
+                        <input type="number" class="form-control" name="duree" id="duree" [(ngModel)]="rdv.duree"
+                            ngModel required step=0.5 value=1 required>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon class="me-2" [icon]="faStickyNote"></fa-icon>Notes
+                        </span>
+                        <textarea class="form-control" name="note" id="note" [(ngModel)]="rdv.note" ngModel
+                            required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="valider_button">Valider</button>
+                    <button type="reset" class="btn btn-danger float-end" *ngIf="rdv.id == undefined">Reset</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>

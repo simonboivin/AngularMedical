@@ -1,1 +1,55 @@
-<p>rdv works!</p>
+<div class="container shadow-lg p-4 bg-light rounded">
+
+    <h1 class="h2  mx-2">Liste des Rendez-vous</h1>
+    <hr class="border border-primary mt-0 mb-3 ">
+    <div class="alert alert-danger" role="alert" *ngIf="erreur">
+        Erreur
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="succes">
+        Opération effectuée avec succès!
+    </div>
+    <div class="mb-3 text-end">
+
+        <button class="btn btn-success ms-3" [routerLink]="['/rdv/addedit', 0 ]">Nouveau
+            rendez-vous</button>
+
+        <button (click)="refreshList()" class="btn btn-primary ms-3">
+            <fa-icon [icon]="faSync"></fa-icon>
+        </button>
+
+    </div>
+    <table class="table table-light table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Patient</th>
+                <th>Date & Heure</th>
+                <th>Type</th>
+                <th>Durée</th>
+                <th>Notes</th>
+                <th>
+                    <fa-icon [icon]="faCogs"></fa-icon>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rdv of rdvList">
+                <td>{{ rdv.id }}</td>
+                <td> {{ rdv.patient?.prenom }} {{rdv.patient?.nom}}</td>
+                <td>{{ rdv.dateheure | date: 'dd/MM/YYYY HH:mm' }}</td>
+                <td>{{ rdv.type }}</td>
+                <td>{{ rdv.duree }}</td>
+                <td>{{ rdv.note }}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" [routerLink]="['/rdv/addedit' , rdv.id]">
+                        <fa-icon [icon]=faEdit></fa-icon>
+                    </button> &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteRdv(rdv.id)">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

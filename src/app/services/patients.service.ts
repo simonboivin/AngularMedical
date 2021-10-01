@@ -10,8 +10,6 @@ import { httpOptions } from 'src/app/variables';
 @Injectable( {
     providedIn: 'root'
 } )
-
-
 export class PatientsService {
 
     constructor( private httpClient: HttpClient ) { }
