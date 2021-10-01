@@ -11,8 +11,8 @@
     <div class="row mb-3">
         <div class="col-2 text-start">
             <div class="input-group w-auto">
-                <input class="form-control" type="text" name="search" id="search"
-                    placeholder="Chercher" [(ngModel)]="search">
+                <input class="form-control" type="text" name="search" id="search" placeholder="Chercher"
+                    [(ngModel)]="search">
                 <button (click)="loadPatientsList()" class="btn btn-primary">
                     <fa-icon [icon]="faSearch"></fa-icon>
                 </button>
@@ -111,5 +111,28 @@
 
 
     </div>
+    <hr class="border border-primary mt-0 mb-3 ">
+
+    <div class="row">
+        <ng-container *ngFor="let patient of patientsList">
+            <ng-container *ngTemplateOutlet="patientCardTemplate; context: {item:patient}"></ng-container>
+        </ng-container>
+    </div>
+
+    <ng-template #patientCardTemplate let-patient="item">
+        <div class="col-4">
+            <div class="card  bg-primary bg-gradient bg-opacity-25 w-100 m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"> {{patient.prenom}} {{patient.nom}} </h5>
+                    <p class="card-text">
+                        Tel : {{patient.telephone}}
+                        <br>
+                        Email : {{patient.email}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
 
 </div>
