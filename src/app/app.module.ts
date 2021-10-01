@@ -18,7 +18,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { PatientsDetailsComponent } from './patients-details/patients-details.component';
 import { VillesDetailsComponent } from './villes-details/villes-details.component';
 import { RdvComponent } from './rdv/rdv.component';
-import { RdvDetailsComponent } from './rdv-details/rdv-details.component'
+import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
+import { PatientsListComponent } from './patients-list/patients-list.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RdvDetailsComponent } from './rdv-details/rdv-details.component'
     PatientsDetailsComponent,
     VillesDetailsComponent,
     RdvComponent,
-    RdvDetailsComponent
+    RdvDetailsComponent,
+    PatientsListComponent
   ],
   imports: [
     BrowserModule,
