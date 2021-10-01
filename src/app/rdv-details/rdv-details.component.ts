@@ -33,7 +33,7 @@ export class RdvDetailsComponent implements OnInit {
   constructor( private rdvService: RdvService, private patientsService: PatientsService, private activatedRoute: ActivatedRoute, private router: Router, private patientsSorters: PatientsSorters ) { }
 
   ngOnInit (): void {
-    this.patientsService.loadPatients().subscribe(
+    this.patientsService.loadPatients("").subscribe(
       data => {
         this.patientsList = data.sort( this.patientsSorters.sorterByNameAsc );
         console.log( data );

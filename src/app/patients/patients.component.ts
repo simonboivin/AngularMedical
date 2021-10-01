@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http'; import { Patients } from '../classes/patients';
 import { Villes } from '../classes/villes';
-import { faCogs, faEdit, faSync, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCogs, faEdit, faSearch, faSync, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment';
 import { PatientsService } from '../services/patients.service';
 import { VillesService } from '../services/villes.service';
@@ -32,6 +32,7 @@ export class PatientsComponent implements OnInit {
 
   faCogs = faCogs;
   faEdit = faEdit;
+  faSearch = faSearch;
   faSync = faSync;
   faTrash = faTrash;
 
@@ -39,6 +40,7 @@ export class PatientsComponent implements OnInit {
   newPatient: Patients = new Patients();
   villesList: Array<Villes> = [];
 
+  search: String = "";
   erreur: Boolean = false;
   succes: Boolean = false;
 
@@ -53,11 +55,20 @@ export class PatientsComponent implements OnInit {
 
   }
 
+
+  loadPatientsList (): void {
+    this.patientsService.loadPatients( this.search ).subscribe(
+      data => {
+        this.patientsList = data.sort( this.sorter );
+        console.log( data );
+      } );
+  }
+
   refreshList (): void {
 
     this.succes = false;
     this.erreur = false;
-
+    this.search = "";
     this.villeService.loadCities().subscribe(
       data => {
         this.villesList = data;
@@ -65,11 +76,7 @@ export class PatientsComponent implements OnInit {
       }
     );
 
-    this.patientsService.loadPatients().subscribe(
-      data => {
-        this.patientsList = data.sort( this.sorter );
-        console.log( data );
-      } );
+    this.loadPatientsList();
 
     this.newPatient = new Patients();
   }

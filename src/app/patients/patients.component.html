@@ -8,12 +8,23 @@
     <div class="alert alert-success" role="alert" *ngIf="succes">
         Opération effectuée avec succès!
     </div>
-    <div class="mb-3 text-end">
-        <button [routerLink]="['/patients/addedit' , 0 ]" class=" btn btn-success" (click)="refreshList()">Nouveau
-            patient</button>
-        <button (click)="refreshList()" class="btn btn-primary ms-3">
-            <fa-icon [icon]="faSync"></fa-icon>
-        </button>
+    <div class="row mb-3">
+        <div class="col-2 text-start">
+            <div class="input-group w-auto">
+                <input class="form-control" type="text" name="search" id="search"
+                    placeholder="Chercher" [(ngModel)]="search">
+                <button (click)="loadPatientsList()" class="btn btn-primary">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="col-10 text-end">
+            <button [routerLink]="['/patients/addedit' , 0 ]" class=" btn btn-success" (click)="refreshList()">Nouveau
+                patient</button>
+            <button (click)="refreshList()" class="btn btn-primary ms-3">
+                <fa-icon [icon]="faSync"></fa-icon>
+            </button>
+        </div>
     </div>
     <div>
 
@@ -85,7 +96,8 @@
                     <td> {{ patient.email }} </td>
                     <td> {{ patient.telephone }} </td>
                     <td> {{ patient.ville?.nom }} </td>
-                    <td> <button type="button" class="btn btn-warning edit_patient_button" [routerLink]="['/patients/addedit' , patient.id ]">
+                    <td> <button type="button" class="btn btn-warning edit_patient_button"
+                            [routerLink]="['/patients/addedit' , patient.id ]">
                             <fa-icon [icon]=faEdit></fa-icon>
                         </button> &nbsp;
                         <button type="button" class="btn btn-danger delete_patient_button"
