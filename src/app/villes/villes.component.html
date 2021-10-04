@@ -20,7 +20,11 @@
             <div class="p-2"> Initial State</div>
         </ng-container>
         <ng-container *ngSwitchCase="VillesStateEnum.LOADING">
-            <div class="p-2"> Loading...</div>
+            <div class="p-2">
+                <div class="spinner-border text-primary" role="status"></div>
+                Chargement...
+            </div>
+
         </ng-container>
         <ng-container *ngSwitchCase="VillesStateEnum.ERROR">
             <div class="p-2 text-danger"> {{state.errorMessage |json}}</div>
