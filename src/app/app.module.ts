@@ -19,9 +19,15 @@ import { PatientsDetailsComponent } from './patients-details/patients-details.co
 import { VillesDetailsComponent } from './villes-details/villes-details.component';
 import { RdvComponent } from './rdv/rdv.component';
 import { RdvDetailsComponent } from './rdv-details/rdv-details.component';
-import { PatientsListComponent } from './patients-list/patients-list.component'
+import { PatientsListComponent } from './patients-list/patients-list.component';
+import { StoreModule } from '@ngrx/store';
+import { VilleReducer } from './ngrx/villes.reducer';
+import { VillesEffects } from './ngrx/villes.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -44,12 +50,15 @@ import { PatientsListComponent } from './patients-list/patients-list.component'
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot( {catalogState:VilleReducer} ),
+    EffectsModule.forRoot( [VillesEffects, ]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
-   
+
   ],
   bootstrap: [AppComponent],
-  
-})
+
+} )
 export class AppModule { }

@@ -12,32 +12,51 @@
         </button>
 
     </div>
-    <table class="table table-light table-striped table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>#</th>
-                <th>Ville</th>
-                <th>CP</th>
-                <th>
-                    <fa-icon [icon]="faCogs"></fa-icon>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let ville of villesList">
-                <td>{{ ville.id }}</td>
-                <td>{{ ville.nom }}</td>
-                <td>{{ ville.codePostal }}</td>
-                <td>
-                    <button type="button" class="btn btn-warning edit_patient_button" [routerLink]="['/villes/addedit' , ville.id]">
-                        <fa-icon [icon]=faEdit></fa-icon>
-                    </button> &nbsp;
-                    <button type="button" class="btn btn-danger delete_patient_button" (click)="deleteCity(ville.id)">
-                        <fa-icon [icon]="faTrash"></fa-icon>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+
+
+    <ng-container *ngIf="VillesState$ | async as state" [ngSwitch]="state.dataState">
+        <ng-container *ngSwitchCase="VillesStateEnum.INITIAL">
+            <div class="p-2"> Initial State</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="VillesStateEnum.LOADING">
+            <div class="p-2"> Loading...</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="VillesStateEnum.ERROR">
+            <div class="p-2 text-danger"> {{state.errorMessage |json}}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="VillesStateEnum.LOADED" class="p-4">
+            <table class="table table-light table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Ville</th>
+                        <th>CP</th>
+                        <th>
+                            <fa-icon [icon]="faCogs"></fa-icon>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ville of state.villes">
+                        <td>{{ ville.id }}</td>
+                        <td>{{ ville.nom }}</td>
+                        <td>{{ ville.codePostal }}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning edit_patient_button"
+                                [routerLink]="['/villes/addedit' , ville.id]">
+                                <fa-icon [icon]=faEdit></fa-icon>
+                            </button> &nbsp;
+                            <button type="button" class="btn btn-danger delete_patient_button"
+                                (click)="deleteCity(ville.id)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
+    </ng-container>
+
 
 </div>
