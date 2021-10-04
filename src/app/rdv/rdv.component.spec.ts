@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RdvComponent } from './rdv.component';
@@ -8,7 +9,8 @@ describe('RdvComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RdvComponent ]
+      declarations: [ RdvComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   });
